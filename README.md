@@ -6,11 +6,13 @@ Visualize individual campaign contribution data for the US from 2019 to 2020.
 
 ## Installation
 
-Install Python 3.6 and `pip` and install the following package
+Install Python 3.6 with `pip` and install the following packages,
 
 ```
-pip3 install "pandas>=0.25.3"
+pip3 install "pandas>=0.25.3" "altair>=4.0.1" "selenium>=3.141.0"
 ```
+
+Download ChromeDriver for your version of Google Chrome [here](https://sites.google.com/a/chromium.org/chromedriver/home).
 
 
 ## Setup
