@@ -23,22 +23,24 @@ wget https://www.fec.gov/files/bulk-downloads/2020/indiv20.zip
 unzip indiv20.zip
 ```
 
-Now download and unzip our ZIP code data,
+Now download and unzip the ZIP code data,
 
 ```
 wget https://simplemaps.com/static/data/us-zips/1.7/basic/simplemaps_uszips_basicv1.7.zip
 unzip simplemaps_uszips_basicv1.7.zip
 ```
 
-The files `indiv_header_file.csv`, `itcont.txt`, `zip_code_database.csv` should be in the working directory for this project.
+Finally, download `ZIP-COUNTY-FIPS_2018-03.csv` from [data.world](https://data.world/niccolley/us-zipcode-to-county-state)
+
+The files `indiv_header_file.csv`, `itcont.txt`, `zip_code_database.csv`, and `ZIP-COUNTY-FIPS_2018-03.csv` should be in the working directory for this project.
 
 
 ## Data Preparation
 
-To prepare our data for visualization, run
+First, group and sum our contributions by zip code,
 
 ```
-./prepare.py
+./prepare_zipcodes.py
 ```
 
-This code may take some time to run. The code for extrapolating zip codes for incomplete rows is the current bottleneck.
+This will create `contrib-by-zip.csv`. The script will take some time to run. The code for extrapolating zip codes for incomplete rows is the current bottleneck.

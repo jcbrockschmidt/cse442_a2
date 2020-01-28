@@ -4,7 +4,6 @@ import pandas as pd
 
 HEADER_PATH = 'indiv_header_file.csv'
 DATA_PATH = 'itcont.txt'
-# ZIP_DATA_PATH = 'uszips.csv'
 ZIP_DATA_PATH = 'zip_code_database.csv'
 OUTPUT_PATH = 'contrib-by-zip.csv'
 
