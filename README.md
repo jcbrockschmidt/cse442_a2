@@ -44,3 +44,11 @@ First, group and sum our contributions by zip code,
 ```
 
 This will create `contrib-by-zip.csv`. The script will take some time to run. The code for extrapolating zip codes for incomplete rows is the current bottleneck.
+
+Then, group and sum our contributions by county,
+
+```
+./prepare_counties.py
+```
+
+This will create `contrib-by-zip.csv`.
