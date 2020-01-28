@@ -58,7 +58,7 @@ This will create `contrib-by-zip.csv`.
 
 ## Visualization
 
-To visualize the *total contributions per county* run
+To visualize the **total individual contributions per county** run
 
 ```
 ./visual_counties.py
