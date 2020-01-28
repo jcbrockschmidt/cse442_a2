@@ -9,7 +9,7 @@ Visualize individual campaign contribution data for the US from 2019 to 2020.
 Install Python 3.6 and `pip` and install the following package
 
 ```
-pip3 install pandas>=0.25.3
+pip3 install "pandas>=0.25.3"
 ```
 
 
