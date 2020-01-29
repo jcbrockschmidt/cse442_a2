@@ -101,16 +101,28 @@ if __name__ == '__main__':
     good_df['ZIP_CODE'] = good_df['ZIP_CODE'].astype(int)
     df = pd.concat([df, good_df], sort=True)
 
-    # Sum transactions amounts, grouping by zip code
+    # Sum contributions amounts and number of contributions, grouping by zip code.
+    # Remove states first. There are still some bad state labels at this stage.
+    print('Summing contributions on zip code...')
     total_rows = len(orig.index)
     rows_used = len(df.index)
-    df = df.groupby(['ZIP_CODE', 'STATE']).sum().reset_index()
+    df['cont_cnt'] = 1
+    df.drop(columns=['STATE'], inplace=True)
+    df = df.groupby(['ZIP_CODE']).sum().reset_index()
     df.drop(columns=['index'], inplace=True)
     df.rename(columns={
         'ZIP_CODE': 'zip',
-        'STATE': 'state_id',
         'TRANSACTION_AMT': 'amt'
     }, inplace=True)
+
+    # Add state labels again.
+    print('Adding state labels...')
+    states = zips[['zip', 'state_id']]
+    df = pd.merge(df, states, on='zip', how='outer')
+    df['amt'].fillna(0, inplace=True)
+    df['cont_cnt'].fillna(0, inplace=True)
+    df.sort_values('zip', inplace=True)
+    df['cont_cnt'] = df['cont_cnt'].astype(int)
 
     # Statistics
     row_percent = rows_used / total_rows * 100

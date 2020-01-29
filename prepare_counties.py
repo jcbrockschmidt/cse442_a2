@@ -39,6 +39,7 @@ if __name__ == '__main__':
     df.drop(columns=['zip'], inplace=True)
     df = df.groupby(['county_id']).sum().reset_index()
     df['county_id'] = df['county_id'].astype(int)
+    df['cont_cnt'] = df['cont_cnt'].astype(int)
 
     # Output to file
     print('Saving data to {}'.format(OUTPUT_PATH))
