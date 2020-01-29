@@ -9,7 +9,7 @@ Visualize individual campaign contribution data for the US from 2019 to 2020.
 Install Python 3.6 with `pip` and install the following packages,
 
 ```
-pip3 install "pandas>=0.25.3" "altair>=4.0.1" "selenium>=3.141.0"
+pip3 install "pandas>=0.25.3" "altair>=4.0.1" "selenium>=3.141.0" "vega_datasets>=0.8.0"
 ```
 
 Download ChromeDriver for your version of Google Chrome [here](https://sites.google.com/a/chromium.org/chromedriver/home).
