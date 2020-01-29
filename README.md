@@ -32,9 +32,15 @@ wget https://simplemaps.com/static/data/us-zips/1.7/basic/simplemaps_uszips_basi
 unzip simplemaps_uszips_basicv1.7.zip
 ```
 
-Finally, download `ZIP-COUNTY-FIPS_2018-03.csv` from [data.world](https://data.world/niccolley/us-zipcode-to-county-state)
+Then download 2018 population estimates for US counties,
 
-The files `indiv_header_file.csv`, `itcont.txt`, `zip_code_database.csv`, and `ZIP-COUNTY-FIPS_2018-03.csv` should be in the working directory for this project.
+```
+wget https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/counties/asrh/cc-est2018-alldata.csv
+```
+
+Finally, download `ZIP-COUNTY-FIPS_2018-03.csv` from [data.world](https://data.world/niccolley/us-zipcode-to-county-state). You will need to register an account.
+
+The files `indiv_header_file.csv`, `itcont.txt`, `zip_code_database.csv`, `cc-est2018-alldata.csv`, and `ZIP-COUNTY-FIPS_2018-03.csv` should be in the working directory for this project.
 
 
 ## Data Preparation
