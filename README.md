@@ -24,29 +24,9 @@ The files `cc-est2018-alldata.csv`, `indiv_header_file.csv`, `itcont.txt`, `zip_
 
 ## Data Preparation
 
-First, group and sum our contributions by zip code,
-
-```
-./prepare_zipcodes.py
-```
-
-This will create `contrib-by-zip.csv`. The script will take some time to run. The code for extrapolating zip codes for incomplete rows is the current bottleneck.
-
-Then, group and sum our contributions by county,
-
-```
-./prepare_counties.py
-```
-
-This will create `contrib-by-zip.csv`.
+Run `prepare-data.sh`. This will generate `contrib-by-zip.csv`, `contrib-by-county.csv`, and `percap-by-county.csv`.
 
 
 ## Visualization
 
-To visualize the **total individual contributions per county** run
-
-```
-./visual_counties.py
-```
-
-This will create the image `indiv-contrib-by-county.png`.
+To create all our visualizations, run `./create-visual.sh`. This will create 8 PNGs.
