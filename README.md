@@ -17,30 +17,9 @@ Download ChromeDriver for your version of Google Chrome [here](https://sites.goo
 
 ## Setup
 
-Download campaign contribution data from the Federal Election Commission and unzip it,
+Run `./download-data.sh`. Then, download `ZIP-COUNTY-FIPS_2018-03.csv` from [data.world](https://data.world/niccolley/us-zipcode-to-county-state). You will need to register an account.
 
-```
-wget https://www.fec.gov/files/bulk-downloads/data_dictionaries/indiv_header_file.csv
-wget https://www.fec.gov/files/bulk-downloads/2020/indiv20.zip
-unzip indiv20.zip
-```
-
-Now download and unzip the ZIP code data,
-
-```
-wget https://simplemaps.com/static/data/us-zips/1.7/basic/simplemaps_uszips_basicv1.7.zip
-unzip simplemaps_uszips_basicv1.7.zip
-```
-
-Then download 2018 population estimates for US counties,
-
-```
-wget https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/counties/asrh/cc-est2018-alldata.csv
-```
-
-Finally, download `ZIP-COUNTY-FIPS_2018-03.csv` from [data.world](https://data.world/niccolley/us-zipcode-to-county-state). You will need to register an account.
-
-The files `indiv_header_file.csv`, `itcont.txt`, `zip_code_database.csv`, `cc-est2018-alldata.csv`, and `ZIP-COUNTY-FIPS_2018-03.csv` should be in the working directory for this project.
+The files `cc-est2018-alldata.csv`, `indiv_header_file.csv`, `itcont.txt`, `zip_code_database.csv`, and `ZIP-COUNTY-FIPS_2018-03.csv` should be in the working directory for this project.
 
 
 ## Data Preparation
