@@ -6,7 +6,7 @@ import pandas as pd
 from vega_datasets import data
 
 DATA_PATH = 'percap-by-county.csv'
-OUTPUT_PATH = 'amtpercap-vs-pop.png'
+OUTPUT_PATH = '4-raw.png'
 
 if __name__ == '__main__':
     alt.renderers.enable('png')
@@ -14,13 +14,28 @@ if __name__ == '__main__':
     df = pd.read_csv(DATA_PATH)
     df.rename(columns={'county_id': 'id'}, inplace=True)
 
-    # TODO: format amount as $
-    chart = alt.Chart(df).mark_point(size=200).encode(
+    scatter = alt.Chart(df).mark_point(size=200, clip=True, opacity=0.3).encode(
         x=alt.X('pop:Q', scale=alt.Scale(type='log'), title='County Population'),
-        y=alt.Y('amt_per_cap:Q', title='Contribution Per Capita ($)'),
+        y=alt.Y('amt_per_cap:Q', scale=alt.Scale(domain=(0, 40)), title='Monetary Contribution Per Capita ($)'),
         color=alt.Color('urban_rural', legend=alt.Legend(title=''), sort=['ua', 'uc', 'rural'])
-    ).properties(
-        title='Individual Contributions Per Capita Versus Population Size',
+    )
+
+    lines = scatter.transform_regression(
+        'pop', 'amt_per_cap', groupby=['urban_rural']
+    ).mark_line(size=8, clip=True).encode(
+        x=alt.X('pop:Q', scale=alt.Scale(type='log'), title='County Population'),
+        y=alt.Y('amt_per_cap:Q', scale=alt.Scale(domain=(0, 40)), title='Monetary Contribution Per Capita ($)'),
+    )
+
+    line_all = scatter.transform_regression(
+        'pop', 'amt_per_cap', method='linear'
+    ).mark_line(size=6, clip=True).encode(
+        x=alt.X('pop:Q', scale=alt.Scale(type='log'), title='County Population'),
+        y=alt.Y('amt_per_cap:Q', scale=alt.Scale(domain=(0, 40)), title='Monetary Contribution Per Capita ($)'),
+    )
+
+    chart = (scatter + lines + line_all).properties(
+        title='Correlating Population Size and Monetary Contribution Amount',
         width=2000 * 3/4,
         height=1200 * 3/4
     ).configure_title(

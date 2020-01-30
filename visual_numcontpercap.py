@@ -6,7 +6,7 @@ import pandas as pd
 from vega_datasets import data
 
 DATA_PATH = 'percap-by-county.csv'
-OUTPUT_PATH = 'num-contrib-percap-by-county.png'
+OUTPUT_PATH = '3-raw.png'
 
 if __name__ == '__main__':
     alt.renderers.enable('png')
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     ).project(
         type='albersUsa'
     ).properties(
-        title='Number of Individual Contributions Per Capita by County',
+        title='Number of Contributions Per Capita by County',
         width=2000,
         height=1200
     ).configure_legend(
